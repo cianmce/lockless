@@ -1,8 +1,10 @@
 # Lockless
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/lockless`. To experiment with that code, run `bin/console` for an interactive prompt.
+Concurrently update records without locks.
 
-TODO: Delete this and the text above, and describe your gem
+Allows for safe concurrent updates to a single record without the need for locks.
+
+This is done by only updating the record when the `lockless_uuid` is unchanged and updating the `lockless_uuid` with each update. Since the SQL update command is atomic we can scope the update to the old `lockless_uuid` and update it to a new value in a single update command.
 
 ## Installation
 
@@ -65,6 +67,14 @@ user2.name = "new name2"
 # Save user2 before saving user1
 user2.lockless_save! # => true
 user1.lockless_save! # => false
+
+# when lockless_save doesn't work you can either ignored the update
+# or reload the record and try again
+
+user1.reload
+user1.name # => "new name2"
+user1.name = "new name3"
+user1.lockless_save! # => true
 ```
 
 ## Development

@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email = ["lockless@cme.33mail.com"]
 
   spec.summary = "Concurrently update records without locks."
-  spec.description = "."
+  spec.description = "Allows for safe concurrent updates to a single record without the need for locks."
   spec.homepage = "https://github.com/cianmce/lockless"
   spec.license = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
