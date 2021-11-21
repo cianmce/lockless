@@ -1,6 +1,6 @@
 # Lockless
 
-[![Gem Version](https://badge.fury.io/rb/master-crypt.png)](https://badge.fury.io/rb/master-crypt)
+[![Gem Version](https://badge.fury.io/rb/lockless.png)](https://badge.fury.io/rb/lockless)
 [![CI Status](https://github.com/cianmce/lockless/actions/workflows/main.yml/badge.svg)](https://github.com/cianmce/lockless/actions)
 
 Allows for safe concurrent updates to a single record without the need for locks.
