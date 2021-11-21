@@ -2,10 +2,6 @@
 
 module Lockless
   # Handles lockless saves
-  #
-  # Options:
-  #
-  # - :lockless_column - The columns used to track the version of the record, defaults to `:lockless_uuid`.
   module Model
     extend ActiveSupport::Concern
 
@@ -16,10 +12,10 @@ module Lockless
       before_save :set_lockless_uuid
     end
 
-    def set_lockless_uuid
-      self.lockless_uuid = SecureRandom.uuid
-    end
-
+    # Saves record if it has not be modified in the time after it was loaded from the database.
+    #
+    # @return [Boolean] Similar to `.save`, true is returned if the model is updated
+    # false is returned if record is outdated or invalid
     def lockless_save
       return false unless valid?
       old_lockless_uuid = lockless_uuid
@@ -39,9 +35,21 @@ module Lockless
       end
     end
 
+    # Saves record if it has not be modified in the time after it was loaded from the database.
+    #
+    # @return [Boolean] Similar to `.save!`, true is returned if the model is updated
+    # false is returned if record is outdated
+    #
+    # @raise [ActiveRecord::RecordInvalid] if record is invalid
     def lockless_save!
       validate!
       lockless_save
+    end
+
+    private
+
+    def set_lockless_uuid
+      self.lockless_uuid = SecureRandom.uuid
     end
   end
 end
