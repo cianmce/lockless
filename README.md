@@ -66,6 +66,8 @@ user2.name = "new name2"
 
 # Save user2 before saving user1
 user2.lockless_save! # => true
+
+# user1 fails to save as it's been updated earlier by user2
 user1.lockless_save! # => false
 
 # when lockless_save doesn't work you can either ignored the update
@@ -75,6 +77,15 @@ user1.reload
 user1.name # => "new name2"
 user1.name = "new name3"
 user1.lockless_save! # => true
+user1.reload.name # => "new name3"
+
+user1.reload
+user1.name = "new name1"
+User.all.update_all(name: "new name4")
+
+# user1 fails to save as it's been updated earlier in `update_all`
+user1.lockless_save! # => false
+user1.reload.name # => "new name4"
 ```
 
 ## Development
