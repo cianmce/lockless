@@ -4,3 +4,4 @@ require "active_record"
 
 require "lockless/version"
 require "lockless/model"
+require "lockless/relation"
