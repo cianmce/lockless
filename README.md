@@ -80,8 +80,10 @@ user2.lockless_save! # => true
 # user1 fails to save as it's been updated earlier by user2
 user1.lockless_save! # => false
 
-# when lockless_save doesn't work you can either ignored the update
+# when lockless_save doesn't work you can either ignore the update and continue
 # or reload the record and try again
+# or calling `.save!` will forcefully save changes without respecting lockless
+# `.save!` will cause the UUID to be changed again
 
 user1.reload
 user1.name # => "new name2"
