@@ -8,11 +8,11 @@ Gem::Specification.new do |spec|
   spec.authors = ["Cian McElhinney"]
   spec.email = ["lockless@cme.33mail.com"]
 
-  spec.summary = "TO DO: Write a short summary, because RubyGems requires one."
-  spec.description = "TO DO: Write a longer description or delete this line."
+  spec.summary = "Concurrently update records without locks."
+  spec.description = "."
   spec.homepage = "https://github.com/cianmce/lockless"
   spec.license = "MIT"
-  spec.required_ruby_version = Gem::Requirement.new(">= 2.4.0")
+  spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
 
   # spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
 
@@ -44,6 +44,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "guard", "~> 2.18"
   spec.add_development_dependency "guard-rspec", "~> 4.7.3"
   spec.add_development_dependency "with_model", "~> 2.0"
+  spec.add_development_dependency "database_cleaner", "~> 1.5"
   spec.add_development_dependency "sqlite3"
   spec.add_dependency "activerecord", ">= 4.0"
 end

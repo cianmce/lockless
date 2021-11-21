@@ -23,6 +23,7 @@ module Lockless
     def lockless_save
       return false unless valid?
       old_lockless_uuid = lockless_uuid
+      return save if new_record?
 
       run_callbacks(:save) do |variable|
         new_attrs = changed.collect { |prop| [prop.to_sym, self[prop]] }.to_h

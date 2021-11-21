@@ -1,0 +1,7 @@
+example_id                                 | status | run_time        |
+------------------------------------------ | ------ | --------------- |
+./spec/lockless/model_spec.rb[1:1]         | passed | 0.0145 seconds  |
+./spec/lockless/model_spec.rb[1:2:1:1]     | passed | 0.07838 seconds |
+./spec/lockless/model_spec.rb[1:2:2:1:1]   | passed | 0.00661 seconds |
+./spec/lockless/model_spec.rb[1:2:2:1:2:1] | passed | 0.04195 seconds |
+./spec/lockless/model_spec.rb[1:2:2:2:1]   | passed | 0.00813 seconds |

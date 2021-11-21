@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-require_relative "lockless/version"
+require "active_record"
 
-module Lockless
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require "lockless/version"
+require "lockless/model"
