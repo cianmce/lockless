@@ -43,5 +43,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "pry-doc", "~> 1.1"
   spec.add_development_dependency "guard", "~> 2.18"
   spec.add_development_dependency "guard-rspec", "~> 4.7.3"
+  spec.add_development_dependency "with_model", "~> 2.0"
+  spec.add_development_dependency "sqlite3"
   spec.add_dependency "activerecord", ">= 4.0"
 end

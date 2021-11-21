@@ -5,7 +5,23 @@ RSpec.describe Lockless do
     expect(Lockless::VERSION).not_to be nil
   end
 
-  it "does something useful" do
-    expect(false).to eq(false)
+  context "with simple User model" do
+    with_model :User, scope: :all do
+      table do |t|
+        t.string :name
+        t.string :lockless_uuid, default: "lockless", null: false
+        t.timestamps null: false
+      end
+
+      model do
+        include Lockless::Model
+      end
+    end
+
+    let(:user) { User.new }
+
+    it "gets updated with standard .save" do
+      binding.pry
+    end
   end
 end
