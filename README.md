@@ -83,13 +83,14 @@ After checking out the repo, run `bin/setup` to install dependencies. Then, run 
 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
-### Run all specs + standardrb
+### Testing
+#### Run all specs + standardrb
 
 ```sh
 bundle exec rake
 ```
 
-### Run only standardrb
+#### Run only standardrb
 
 ```sh
 bundle exec rake standard
@@ -101,7 +102,7 @@ bundle exec rake standard
 bundle exec rake standard:fix
 ```
 
-### Run specs using guard
+#### Run specs using guard
 
 ```sh
 bundle exec guard

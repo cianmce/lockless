@@ -1,9 +1,9 @@
 example_id                                 | status | run_time        |
 ------------------------------------------ | ------ | --------------- |
-./spec/lockless/model_spec.rb[1:1]         | passed | 0.01064 seconds |
-./spec/lockless/model_spec.rb[1:2:1:1]     | passed | 0.02022 seconds |
-./spec/lockless/model_spec.rb[1:3:1:1]     | passed | 0.01018 seconds |
-./spec/lockless/model_spec.rb[1:3:2:1:1]   | passed | 0.00389 seconds |
-./spec/lockless/model_spec.rb[1:3:2:1:2:1] | passed | 0.02094 seconds |
-./spec/lockless/model_spec.rb[1:3:2:2:1]   | passed | 0.00541 seconds |
-./spec/lockless/model_spec.rb[1:3:2:2:2]   | passed | 0.00269 seconds |
+./spec/lockless/model_spec.rb[1:1]         | passed | 0.01462 seconds |
+./spec/lockless/model_spec.rb[1:2:1:1]     | passed | 0.02421 seconds |
+./spec/lockless/model_spec.rb[1:3:1:1]     | passed | 0.01106 seconds |
+./spec/lockless/model_spec.rb[1:3:2:1:1]   | passed | 0.00604 seconds |
+./spec/lockless/model_spec.rb[1:3:2:1:2:1] | passed | 0.03092 seconds |
+./spec/lockless/model_spec.rb[1:3:2:2:1]   | passed | 0.00584 seconds |
+./spec/lockless/model_spec.rb[1:3:2:2:2]   | passed | 0.00245 seconds |
