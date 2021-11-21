@@ -3,8 +3,6 @@
 [![Gem Version](https://badge.fury.io/rb/master-crypt.png)](https://badge.fury.io/rb/master-crypt)
 [![CI Status](https://github.com/cianmce/lockless/actions/workflows/main.yml/badge.svg)](https://github.com/cianmce/lockless/actions)
 
-Concurrently update records without locks.
-
 Allows for safe concurrent updates to a single record without the need for locks.
 
 This is done by only updating the record when the `lockless_uuid` is unchanged and updating the `lockless_uuid` with each update. Since the SQL update command is atomic we can scope the update to the old `lockless_uuid` and update it to a new value in a single update command.
