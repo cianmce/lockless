@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.description = "Allows for safe concurrent updates to a single record without the need for locks."
   spec.homepage = "https://github.com/cianmce/lockless"
   spec.license = "MIT"
-  spec.required_ruby_version = ">= 2.3.0"
+  spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = spec.homepage
