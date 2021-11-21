@@ -55,6 +55,15 @@ class AddLocklessUuidToUsers < ActiveRecord::Migration[5.0]
 end
 ```
 
+### Custom column name
+
+```ruby
+class User < ActiveRecord::Base
+  include Lockless::Model
+  self.lockless_column = :custom_uuid
+end
+```
+
 ### Sample Usage
 
 ```ruby
