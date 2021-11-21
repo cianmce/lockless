@@ -89,6 +89,18 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 bundle exec rake
 ```
 
+### Run only standardrb
+
+```sh
+bundle exec rake standard
+````
+
+#### Apply standardrb auto fixes
+
+```sh
+bundle exec rake standard:fix
+```
+
 ### Run specs using guard
 
 ```sh
@@ -111,6 +123,5 @@ Everyone interacting in the Lockless project's codebases, issue trackers, chat r
 
 ## TODO
 
-- [ ] Allow for custom lockless column name
 - [ ] Allow for custom primary key column name
 - [ ] Allow a boolean to be passed to allow for validation to be skipped like in `.save`

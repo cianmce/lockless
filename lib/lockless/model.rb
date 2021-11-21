@@ -2,6 +2,11 @@
 
 module Lockless
   # Handles lockless saves
+
+  #
+  # Options:
+  #
+  # - :lockless_column - The columns used to track soft delete, defaults to `:lockless_uuid`.
   module Model
     extend ActiveSupport::Concern
 
@@ -10,6 +15,14 @@ module Lockless
       self.lockless_column = :lockless_uuid
 
       before_save :set_lockless_uuid
+
+      delegate :generate_uuid, :lockless_column, to: :class
+    end
+
+    class_methods do
+      def generate_uuid
+        SecureRandom.uuid
+      end
     end
 
     # Saves record if it has not be modified in the time after it was loaded from the database.
@@ -18,18 +31,18 @@ module Lockless
     # false is returned if record is outdated or invalid
     def lockless_save
       return false unless valid?
-      old_lockless_uuid = lockless_uuid
+      old_lockless_uuid = public_send(lockless_column)
       return save if new_record?
 
       run_callbacks(:save) do |variable|
         new_attrs = changed.collect { |prop| [prop.to_sym, self[prop]] }.to_h
 
-        update_count = self.class.where(id: id, lockless_uuid: old_lockless_uuid).update_all(new_attrs)
+        update_count = self.class.where(:id => id, lockless_column => old_lockless_uuid).update_all(new_attrs)
         if update_count == 1
           changes_applied
           true
         else
-          self.lockless_uuid = old_lockless_uuid
+          public_send("#{lockless_column}=", old_lockless_uuid)
           false
         end
       end
@@ -49,7 +62,7 @@ module Lockless
     private
 
     def set_lockless_uuid
-      self.lockless_uuid = SecureRandom.uuid
+      public_send("#{lockless_column}=", generate_uuid)
     end
   end
 end
