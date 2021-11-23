@@ -2,11 +2,10 @@
 
 module Lockless
   module Relation
-    # Appends updated attribute of a random UUID to each update command
-    # when the model is a lockless model
+    # Appends update attributes with a random UUID when the model is a lockless model
     #
     # @param [String, Array, Hash] A string, array, or hash representing the SET part of an SQL statement.
-    # Lockless will only append random UUID to updates if the param is a Hash
+    # Lockless will only append random UUID updates if the param is a Hash
     #
     # @return [Boolean] Similar to `.save`, true is returned if the model is updated
     # false is returned if record is outdated or invalid
