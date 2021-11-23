@@ -2,7 +2,6 @@
 
 module Lockless
   module Relation
-
     # Appends updated attribute of a random UUID to each update command
     # when the model is a lockless model
     #
