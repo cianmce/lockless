@@ -148,5 +148,4 @@ Everyone interacting in the Lockless project's codebases, issue trackers, chat r
 ## TODO
 
 - [ ] Allow for custom primary key column name
-- [ ] Handle `update_all` string arguments
 - [ ] Allow a boolean to be passed to allow for validation to be skipped like in `.save`
