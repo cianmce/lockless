@@ -21,7 +21,7 @@ And then execute:
 
     $ bundle install
 
-Or install it yourself as:
+Or install it yourself:
 
     $ gem install lockless
 
