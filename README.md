@@ -70,7 +70,7 @@ end
 user1 = User.first # => #<User id: 1, ...>
 user1.name = "new name1"
 
-# other process
+# other process/service/application
 user2 = User.first # => #<User id: 1, ...>
 user2.name = "new name2"
 
